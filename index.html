@@ -9,23 +9,11 @@
 </head>
 <body>
     <header>
-        <script>
-            function hover(element) {
-                element.setAttribute('src', 'images/Error.png');
-            }
-
-            function unhover(element) {
-                element.setAttribute('src', 'images/Mac.png');
-            }
-        </script>
-        <img class="logo" src="images/Mac.png" height="64px" width="50px" onmouseover="hover(this);" onmouseout="unhover(this);"/>
-        <nav>
-            <ul class="nav_links">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="navbar">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
     </header>
     
     <h1 id="greeting">Hey, I'm Dylan.</h1>
