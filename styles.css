@@ -8,8 +8,17 @@
     font-family: "San Francisco", Helvetica, sans-serif;
 }
 
-body {
-    background: linear-gradient(to right, #ffffff, #e6e6ff);
+#gradient-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    --gradient-color-1: #cfd0fa; 
+    --gradient-color-2: #f6f6f6; 
+    --gradient-color-3: #eae2ff;  
+    --gradient-color-4: #c7caf7;
 }
 
 header {
@@ -28,14 +37,14 @@ header {
     border-radius: 50px;
     padding: 10px 20px;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-    position: absolute;
+    position: fixed;
 }
   
 .navbar a {
     text-decoration: none;
     font-size: 20px;
     color: #323235;
-    background-image:linear-gradient(to right, #5e5e63, #5e5e63 33.3333%, #3A41C6, #3D3BBB, #4634A7, #4C2C96, #512888);
+    background-image:linear-gradient(to right, #323235, #323235 33.3333%, #3A41C6, #3D3BBB, #4634A7, #4C2C96, #512888);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 300% 100%;
@@ -75,7 +84,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #5e5e63;
+    color: #323235;
     font-size: 25px;
 }
 
@@ -88,8 +97,6 @@ header {
     text-align: center;
     font-size: 25px;
     max-width: 600px;
-    color: #5e5e63;
+    color: #323235;
     line-height: 30px;
 }
-
-  
