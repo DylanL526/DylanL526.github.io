@@ -11,7 +11,6 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 #gradient-canvas {
@@ -105,12 +104,14 @@ header {
     max-width: 600px;
     color: #323235;
     line-height: 30px;
+    margin-right: 10px;
+    max-width: 80%;
 }
 
 .about {
     background-color: #f6f6f6;
     margin-top: 400px;
-    padding-bottom: 400px;
+    padding-bottom: 300px;
     border-radius: 50px;
 }
 
@@ -124,21 +125,46 @@ header {
 }
 
 #portrait {
-    float: left;
     border-radius: 20px;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
-    max-height:660px;
-    max-width:520px;
-    margin-right: 80px;
+    max-height:30%;
+    max-width:30%;
+    margin-right: 5%;
 }
 
 .about_desc {
     color: #323235;
-    font-size: 25px;
-    line-height: 35px;
+    font-size: 1.5vw;
+    line-height: 150%;
+    max-height:50%;
+}
+
+@media (max-width: 768px) {
+    .about_content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #portrait, .about_desc {
+        max-width: 80%;
+        margin: 0;
+    }
+
+    #portrait {
+        margin-top: -20px;
+        margin-bottom: 50px;
+    }
+
+    .about_desc {
+        font-size: 4vw;
+    }
 }
 
 .about_content {
-    margin: 100px auto;
-    width: 60%;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
