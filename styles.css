@@ -108,14 +108,14 @@ header {
     max-width: 80%;
 }
 
-.about {
+.body_content {
     background-color: #f6f6f6;
     margin-top: 400px;
     padding-bottom: 300px;
     border-radius: 50px 50px 0 0;
 }
 
-#about_title {
+.title {
     text-align: center;
     font-size: 70px;
     padding-top: 50px;
@@ -134,7 +134,7 @@ header {
 
 .about_desc {
     color: #323235;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     line-height: 150%;
     max-height:50%;
 }
@@ -166,14 +166,33 @@ header {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 70%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1025px) {
+    .about_content {
+        display: flex;
+        align-items: center;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+    .about_desc {
+        font-size: 1.8vw;
+    }
 }
 
 footer {
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     color: #707072;
     background-color: #f1f1f1;
     padding-top: 75px;
     padding-bottom: 75px;
+}
+
+#footer_txt {
+    padding-left: 40px;
+    padding-right: 40px;
 }
