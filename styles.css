@@ -112,7 +112,7 @@ header {
     background-color: #f6f6f6;
     margin-top: 400px;
     padding-bottom: 300px;
-    border-radius: 50px;
+    border-radius: 50px 50px 0 0;
 }
 
 #about_title {
@@ -167,4 +167,13 @@ header {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+}
+
+footer {
+    font-size: 18px;
+    text-align: center;
+    color: #707072;
+    background-color: #f1f1f1;
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
