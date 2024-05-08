@@ -8,28 +8,42 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <canvas id="gradient-canvas" data-transition-in></canvas>
-    <script src="Gradient.js"></script>
-    <header>
-        <div class="navbar">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </header>
-    <div class="content">
-        <h1 id="greeting">Hey, I'm Dylan.</h1>
-        
-        <div class="location">
-            <img src="images/location.png" height=24px width="24px">
-            Pittsburgh, PA
-        </div>
-        
-        <div class="container">
-            <div class="intro">
-                I'm currently a student at Carnegie Mellon University studying computer science, human-computer interaction, and machine learning.
+    <div id="initial-screen">
+        <canvas id="gradient-canvas" data-transition-in></canvas>
+        <header>
+            <div class="navbar">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </header>
+        <div class="content">
+            <h1 id="greeting">Hey, I'm Dylan.</h1>
+            
+            <div class="location">
+                <img src="images/pin.png" height=24px width="24px" alt="Pin">
+                &nbspPittsburgh, PA
+            </div>
+            
+            <div class="container">
+                <div class="intro">
+                    I'm currently a student at Carnegie Mellon University studying computer science, human-computer interaction, and machine learning.
+                </div>
             </div>
         </div>
-    </div>    
+    </div>
+    <div class="about">
+        <h2 id="about_title">About</h2>
+        <div class="about_content">
+            <img id="portrait" src="images/portrait.jpg" alt="Dylan">
+            <div class="about_desc">
+                Hi again, I'm Dylan Landucci. I'm a highly motivated and detail-oriented computer science student at Carnegie Mellon University. My interests lie at the intersection of human-computer interaction and machine learning, and I have a strong interest in
+                leveraging these fields to create software that makes our lives easier. I place a high focus on the design of user-interfaces, as I believe a product should be just as intuitive as it is functional.<br><br>
+                Over the years, I've had the oppurtunity of working on a variety of projects, each offering unique challenges and learning experiences. I'm proficient in several programming languages including Python, C, and Java, and continue to grow my knowledge of others every day.
+                When not at the computer, you can find me playing table tennis, practicing trumpet, or watching YouTube.
+            </div>
+        </div>
+    </div>
+    <script src="Gradient.js"></script>
 </body>
 </html>
