@@ -141,7 +141,8 @@ header {
 
 .contact_container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     padding: 20px 0;
     margin: 0 auto;
 }
@@ -152,21 +153,13 @@ header {
     justify-content: center;
     width: 303.33px;
     height: 80px;
-    margin-right: 10px;
+    margin: 10px;
     background-color: #eeeff1;
     border-radius: 20px;
     font-size: 25px;
     text-decoration: none;
     color: #323235;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-}
-
-.button:last-child {
-    margin-right: -10px;
-}
-
-.button:first-child {
-    margin-left: -20px;
 }
 
 
@@ -185,17 +178,18 @@ header {
 }
 
 .proj_contact {
-    width: 910px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .button_container {
-    width: 910px;
+    width: 920px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .wide_button {
@@ -238,24 +232,26 @@ header {
         margin-right: auto;
         width: 90%;
     }
+
     .about_desc {
         font-size: 1.8vw;
     }
+
     .contact_container {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        align-items: center;
         padding: 20px 0;
-        width: 720px;
         margin: 0 auto;
+        width: 100%;
     }
     
     .button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 220px;
+        width: 240px;
         height: 65px;
-        margin: 5px;
         background-color: #eeeff1;
         border-radius: 20px;
         font-size: 20px;
@@ -270,7 +266,7 @@ header {
     }
 
     .proj_contact {
-        width: 700px;
+        width: 740px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -341,20 +337,55 @@ header {
         flex-direction: column;
         align-items: center;
         max-width: 100%;
+        justify-content: center;
     }
 
     .button {
         margin-bottom: 20px;
-        width: 300px;
+        width: 105%;
+        margin-right: 10px;
     }
 
-    .button:last-child {
-        margin-right: 0;
-        margin-left: -10px;
+    .proj_contact {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
     }
-    
-    .button:first-child {
-        margin-left: 0;
+
+    .button_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .wide_button {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .wide_button img {
+        margin-top: 10px;
+        align-self: center;
+    }
+
+    .button_text {
+        align-self: flex-start;
+        width: 100%;
+    }
+
+    .button_text h2 {
+        font-size: 50px;
+    }
+
+    .button_text p {
+        color: #5E5E63;
+        margin: 20px;
+        font-size: 25px;
+        max-width: 100%;
     }
 }
 
