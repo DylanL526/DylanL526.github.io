@@ -196,7 +196,7 @@ header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 320px;
+    height: 290px;
     margin: 10px 0;
     margin-bottom: 30px;
     background-color: #eeeff1;
@@ -286,7 +286,7 @@ header {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        height: 320px;
+        height: 200px;
         margin: 10px 0;
         margin-bottom: 30px;
         background-color: #eeeff1;
@@ -297,7 +297,7 @@ header {
     }
     
     .button_text h2 {
-        font-size: 60px;
+        font-size: 40px;
         margin: 20px;
         color: #323235;
     }
@@ -305,7 +305,7 @@ header {
     .button_text p {
         color: #5E5E63;
         margin: 20px;
-        font-size: 30px;
+        font-size: 25px;
         max-width: 350px;
     }
     
