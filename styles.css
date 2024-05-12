@@ -318,6 +318,11 @@ header {
         height: 60px;
         margin: 10px;
     }
+
+    #hourglass { 
+        height: 157.5px;
+        width: 290px;
+    }
 }
 
 @media (max-width: 768px) {
