@@ -229,6 +229,17 @@ header {
     width: 500px;
 }
 
+#c0vm {
+    height: 270px;
+    width: 350px;
+}
+
+#csacademy {
+    height: 270px;
+    width: 400px;
+    padding-right: 10px;
+}
+
 @media screen and (min-width: 769px) and (max-width: 1025px) {
     .about_content {
         display: flex;
@@ -317,11 +328,26 @@ header {
     .wide_button img {
         height: 60px;
         margin: 10px;
+        display: block;
+        margin: auto;
     }
 
     #hourglass { 
         height: 157.5px;
         width: 290px;
+    }
+
+    #c0vm {
+        height: 180px;
+        width: 235px;
+    }
+
+    #csacademy {
+        height: 172.5px;
+        width: 250px;
+        padding-right: 10px;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 }
 
@@ -399,6 +425,16 @@ header {
         margin: 20px;
         font-size: 25px;
         max-width: 100%;
+    }
+
+    #hourglass { 
+        height: auto;
+        width: auto;
+    }
+
+    #c0vm {
+        height: auto;
+        width: auto;
     }
 }
 
