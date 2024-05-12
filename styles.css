@@ -240,6 +240,12 @@ header {
     padding-right: 10px;
 }
 
+#pwebsite {
+    height: 270px;
+    width: 400px;
+    padding-top: 5px;
+}
+
 @media screen and (min-width: 769px) and (max-width: 1025px) {
     .about_content {
         display: flex;
@@ -346,8 +352,11 @@ header {
         height: 172.5px;
         width: 250px;
         padding-right: 10px;
-        margin-top: auto;
-        margin-bottom: auto;
+    }
+
+    #pwebsite {
+        height: 172.5px;
+        width: 250px;
     }
 }
 
