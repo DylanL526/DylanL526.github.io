@@ -486,6 +486,12 @@ header {
     .navbar a:hover {
         background-position: top left 0%;
     }
+
+    #greeting { 
+        font-size: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     
 }
 
