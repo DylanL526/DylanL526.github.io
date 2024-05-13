@@ -195,6 +195,15 @@ header {
     margin-right: auto;
 }
 
+#project_title {
+    margin-bottom: 25px;
+    margin-top: 0;
+}
+
+#contact_title {
+    margin-bottom: 25px;
+}
+
 .button_container {
     width: 920px;
     display: flex;
