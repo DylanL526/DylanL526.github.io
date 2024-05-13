@@ -437,13 +437,33 @@ header {
     }
 
     #hourglass { 
-        height: auto;
-        width: auto;
+        height: 35vw;
+        width: 60vw;
+        justify-content: center;
+        margin-bottom: auto;
     }
 
     #c0vm {
-        height: auto;
-        width: auto;
+        height: 40vw;
+        width: 50vw;
+        justify-content: center;
+        margin-top: -1vw;
+        margin-bottom: auto;
+    }
+
+    #csacademy {
+        height: 40vw;
+        width: 60vw;
+        justify-content: center;
+        margin-top: -2vw;
+        margin-bottom: auto;
+        padding-left: 10px;
+    }
+
+    #pwebsite {
+        height: 40vw;
+        width: 60vw;
+        margin-bottom: auto;
     }
 }
 
