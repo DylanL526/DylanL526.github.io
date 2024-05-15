@@ -466,6 +466,7 @@ header {
         height: 35vw;
         width: 60vw;
         justify-content: center;
+        margin-top: auto;
         margin-bottom: auto;
     }
 
@@ -473,7 +474,7 @@ header {
         height: 40vw;
         width: 50vw;
         justify-content: center;
-        margin-top: -1vw;
+        margin-top: auto;
         margin-bottom: auto;
     }
 
@@ -481,7 +482,7 @@ header {
         height: 40vw;
         width: 60vw;
         justify-content: center;
-        margin-top: -2vw;
+        margin-top: auto;
         margin-bottom: auto;
         padding-left: 10px;
     }
