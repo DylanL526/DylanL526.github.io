@@ -10,7 +10,7 @@
     src: url("fonts/SF-Pro-Display-Bold.otf");
 }
 
-* {
+body {
     font-family: "San Francisco", Helvetica, sans-serif;
     background-color: #f6f6f6;
 }
