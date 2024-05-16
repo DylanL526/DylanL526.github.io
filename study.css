@@ -10,9 +10,15 @@
     src: url("fonts/SF-Pro-Display-Bold.otf");
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "San Francisco", Helvetica, sans-serif;
     background-color: #f6f6f6;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
