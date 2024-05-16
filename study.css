@@ -55,10 +55,26 @@ body {
     padding-bottom: 20px;
 }
 
-.body_text {
+.subtitle {
+    font-size: 45px;
+    color: #323235;
+    font-family: "San Francisco Bold", Helvetica, sans-serif;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.space_body_text {
     font-size: 25px;
     color: #5E5E63;
     margin-bottom: 30px;
+    line-height: 35px;
+}
+
+.reg_body_text {
+    font-size: 25px;
+    color: #5E5E63;
+    margin-bottom: 0px;
+    line-height: 35px;
 }
 
 .info {
@@ -77,9 +93,33 @@ body {
     font-family: "San Francisco", Helvetica, sans-serif;
     font-size: 25px;
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 #course, #professor {
     color: #5E5E63;
     text-decoration: none;
+}
+
+.here {
+    color: #a3a2a2;
+}
+
+footer {
+    font-size: 16px;
+    text-align: center;
+    color: #707072;
+    background-color: #eeeff1;
+    margin-top: 100px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+#footer_txt {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+@media (max-width: 768px) {
+    
 }

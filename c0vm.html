@@ -16,7 +16,7 @@
         <div class="title">
             C0 Virtual Machine
         </div>
-        <div class="body_text">
+        <div class="space_body_text">
             A virtual machine for C0, a safe subset of the C language. The virtual machine, inspired by the JVM, runs arbitrary C0 code that has been compiled to bytecode.
         </div>
         <div class="info">
@@ -32,7 +32,33 @@
                 <span class="label">Professor</span>
                 <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://csd.cmu.edu/people/faculty/iliano-cervesato" id="professor">Iliano Cervesato</a></p>
             </div>
-        </div>    
+        </div>
+        <div class="subtitle">
+            Implementation
+        </div>
+        <div class="reg_body_text">
+            The virtual machine has the ability to run any C0 code that has been previously compiled to C0 bytecode. The implementation utilizes an operand stack, call stack, program 
+            counter, local variable array, and both a function pool and constant pool. It is able to process over 40 separate operations, with functions ranging from performing basic arithmetic 
+            to allocating memory on the heap. In addition to these operations, the virtual machine includes safety checks through contracts, assert statements, and loop invariants, 
+            features essential to C0's unique focus on preventing unsafe behaviors.
+        <br><br>
+            Detailed reference on the C0 language can be found <a target="_blank" rel="noopener noreferrer" href="https://c0.cs.cmu.edu/docs/c0-reference.pdf" class="here">here</a>,
+            and documentation on C0's virtual machine can be found <a target="_blank" rel="noopener noreferrer" href="https://www.cs.cmu.edu/~15122/handouts/lectures/22-c0vm.pdf" class="here">here</a>.
+        </div>
+        <div class="subtitle">
+            Extension
+        </div>
+        <div class="reg_body_text">
+            On top of the ability to run all arbitrary C0 code, I extended the virtual machine's functionality to support the C1 language, which adds generic tagged pointers
+            and function pointers. Besides these two additional features, the C1 language is identical to C0, and includes safety checks that prohibit unsafe casts.
+        <br><br>
+            With this extension, the virtual machine has the ability to run all C0 and C1 programs, including all previous assignments from 15-122.
+        </div>
     </div>
+    <footer>
+        <div id="footer_txt">
+            Copyright © 2024 Dylan Landucci. All rights reserved.
+        </div>
+    </footer>
 </body>
 </html>
