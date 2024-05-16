@@ -121,5 +121,61 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .container {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .title {
+        font-size: 45px;
+        color: #323235;
+        font-family: "San Francisco Bold", Helvetica, sans-serif;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
     
+    .subtitle {
+        font-size: 35px;
+        color: #323235;
+        font-family: "San Francisco Bold", Helvetica, sans-serif;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+    
+    .space_body_text {
+        font-size: 25px;
+        color: #5E5E63;
+        margin-bottom: 30px;
+        line-height: 35px;
+    }
+    
+    .reg_body_text {
+        font-size: 25px;
+        color: #5E5E63;
+        margin-bottom: 0px;
+        line-height: 35px;
+    }
+    
+    .info {
+        display: flex;
+        justify-content: space-between;
+        color: #5E5E63;
+        width: 100%;
+    }
+    
+    .label {
+        font-family: "San Francisco Bold", Helvetica, sans-serif;
+        font-size: 18px;
+    }
+    
+    .info_desc {
+        font-family: "San Francisco", Helvetica, sans-serif;
+        font-size: 25px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 }
