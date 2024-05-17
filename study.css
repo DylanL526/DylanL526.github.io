@@ -42,6 +42,11 @@ body {
     top: 40px;
     left: 40px;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+#back-button:hover {
+    transform: scale(1.05);
 }
 
 #back-button img {
@@ -109,6 +114,30 @@ body {
 
 .here {
     color: #a3a2a2;
+}
+
+.image_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#navbar {
+    width: 45%;
+    margin-right: 60px;
+    border-radius: 25px;
+    margin-top: 40px;
+    margin-bottom: -30px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+#dynamic_island {
+    width: 45%;
+    border-radius: 25px;
+    margin-top: 40px;
+    margin-bottom: -30px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
 }
 
 footer {
