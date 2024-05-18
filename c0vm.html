@@ -30,13 +30,13 @@
             </div>
             <div class="item">
                 <span class="label">Professor</span>
-                <p class="info_desc" id="prof_name"><a target="_blank" rel="noopener noreferrer" href="https://csd.cmu.edu/people/faculty/iliano-cervesato" id="professor">Iliano Cervesato</a></p>
+                <p class="info_desc" id="prof_name"><a target="_blank" rel="noopener noreferrer" href="https://csd.cmu.edu/people/faculty/iliano-cervesato" id="professor"></a></p>
             </div>
             <script>
                 window.addEventListener('resize', function() {
                   var width = window.innerWidth;
                   var dateElement = document.getElementById('date');
-                  var prof = document.getElementById('prof_name');
+                  var prof = document.getElementById('professor');
                   if (width <= 768) {
                     dateElement.textContent = '4/2024';
                     prof.textContent = 'I. Cervesato';
@@ -50,7 +50,7 @@
                 function updateDate() {
                   var width = window.innerWidth;
                   var dateElement = document.getElementById('date');
-                  var prof = document.getElementById('prof_name');
+                  var prof = document.getElementById('professor');
                   if (width <= 768) {
                     dateElement.textContent = '4/2024';
                     prof.textContent = 'I. Cervesato';
