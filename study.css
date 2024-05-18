@@ -148,6 +148,13 @@ body {
     margin-bottom: -10px;
 }
 
+.hourglass_scr {
+    width: 600px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    margin-top: 60px;
+    margin-bottom: -10px;
+}
+
 footer {
     font-size: 16px;
     text-align: center;
@@ -234,7 +241,14 @@ footer {
         box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
     }
 
-    .image_container img:last-child {
-        margin-bottom: 0;
-      }
+    #course_name {
+        display: none;
+    }
+
+    .hourglass_scr {
+        width: 350px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        margin-top: 40px;
+        margin-bottom: -30px;
+    }
 }

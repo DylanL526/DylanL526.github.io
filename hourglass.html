@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hourglass</title>
+    <link rel="stylesheet" href="study.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" id="back-button">
+            <img src="images/back.png" alt="Back">
+        </a>
+        <img src="images/hourglass.png" class="image" alt="c0vm Demo">
+        <div class="title">
+            Hourglass
+        </div>
+        <div class="space_body_text">
+            A digital, hassle-free calendar with the ability to automatically streamline its users' schedules. My term project for Carnegie Mellon's 15-112 Fundamentals of
+            Programming and Computer Science. Written exclusively in Python and utilizing CMU's graphics package.
+        </div>
+        <div class="info">
+            <div class="item">
+                <span class="label">Timeline</span>
+                <p class="info_desc" id="date">December 2023</p>
+            </div>
+            <div class="item" id="course_name">
+                <span class="label">Course</span>
+                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://www.cs.cmu.edu/~112/" id="course">15-112</a></p>
+            </div>
+            <div class="item">
+                <span class="label">GitHub</span>
+                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://github.com/DylanL526/Hourglass" id="course">Hourglass</a></p>
+            </div>
+            <div class="item">
+                <span class="label">Professor</span>
+                <p class="info_desc" id="prof_name"><a target="_blank" rel="noopener noreferrer" href="https://csd.cmu.edu/people/faculty/michael-taylor" id="professor">Michael Taylor</a></p>
+            </div>
+            <script>
+                window.addEventListener('resize', function() {
+                  var width = window.innerWidth;
+                  var dateElement = document.getElementById('date');
+                  var prof = document.getElementById('prof_name');
+                  if (width <= 768) {
+                    dateElement.textContent = '12/2023';
+                    prof.textContent = 'M. Taylor';
+                  } else {
+                    dateElement.textContent = 'December 2023';
+                    prof.textContent = 'Michael Taylor';
+                  }
+                });
+            </script>
+            <script>
+                function updateDate() {
+                  var width = window.innerWidth;
+                  var dateElement = document.getElementById('date');
+                  var prof = document.getElementById('prof_name');
+                  if (width <= 768) {
+                    dateElement.textContent = '12/2023';
+                    prof.textContent = 'M. Taylor';
+                  } else {
+                    dateElement.textContent = 'December 2023';
+                    prof.textContent = 'Michael Taylor';
+                  }
+                }
+                
+                window.addEventListener('resize', updateDate);
+                updateDate();
+            </script>
+        </div>
+        <div class="subtitle">
+            Background
+        </div>
+        <div class="reg_body_text">
+            Coming into my first year at Carnegie Mellon, I knew it was essential to have some means of organization regarding both my assignments and my extracurricular activities. Due to the sheer influx of work given to students at CMU, I decided to try out Google Calendar to help keep tabs on what I needed to get done. However, I felt as though I was experiencing some issues with the application. While I did want to stay organized, I found myself spending far too much time planning out when I wanted to work on assignments and in what lengths of time it would be. Eventually, I abandoned the idea of using Google Calendar altogether and resorted to using a simple to-do app to track my assigned work.
+        </div>
+        <div class="subtitle">
+            A Better Solution
+        </div>
+        <div class="reg_body_text">
+            When it came time to decide what to do for my term project in CMU's Python course, 15-112, I was initially torn between ideas. From a young age, I had always loved playing video games, and, due to the graphics-based nature of 15-112, I thought recreating one could be a potentially good project. However, in years prior, I had developed a plethora of retro arcade games, and I wanted to challenge myself to do something more.
+        <br><br>
+        However, it soon dawned on me: this was the perfect opportunity to create the calendar app I had been searching for. With this new goal in mind, I set out to create my ideal calendar application, drawing from my experience with Google Calendar and the shortcomings I had encountered.
+        </div>
+        <div class="subtitle">
+            Design
+        </div>
+        <div class="reg_body_text">
+            While Google Calendar does have an extraordinary design, I wanted to tailor my application more towards students and working professionals, as I had initially found Google Calendar was lacking in this aspect. Much like Google Calendar, I decided to implement a grid-based layout with tiles representing individual events and the height of each tile representing the length of time of that specific event. Dates of the current week would be shown above the grid, while specific times would be shown to its left.
+            <div class="image_container">
+            <img src="images/hghome.png" class="hourglass_scr" alt="Hourglass Image">
+            </div>
+            <br><br>
+            However, in addition to this main calendar screen, I implemented three other pages available at the user's disposal: one for tasks, one for habits, and one for statistics.
+            <br><br>
+            The tasks page acts as a central hub for users' tasks previously input on the initial calendar screen. Tasks are given to the user in widget form, displaying relevant information such as the task's title, date, and time. The user also has the ability to remove tasks by simply pressing the trash icon found in the top right of the widget.
+            <div class="image_container">
+            <img src="images/tasks.gif" class="hourglass_scr" alt="Tasks GIF">
+            </div>
+            <br><br>
+            The habits page features a similar layout to the aforementioned tasks page, with the addition of a button to create new habits. To add habits, users simply specify a name for their habit, along with the times and days on which it takes place. In doing so, the habit will appear at the specified times and days in the main calendar screen, repeating at these times and days across every subsequent week.
+            <div class="image_container">
+            <img src="images/habits.gif" class="hourglass_scr" alt="Habits GIF">
+            </div>
+            <br><br>
+            Finally, the statistics page acts as a means of reporting to the user how much time they are spending on input events including both tasks and habits. Times are displayed in graph form, with Hourglass automatically tracking how many hours each day the user has input into their individual calendar.
+            <div class="image_container">
+            <img src="images/stats.png" class="hourglass_scr" alt="Statistics Image">
+            </div>
+            <br>
+            <div class="subtitle">
+                Functionality
+            </div>
+            While users are able to add single events to their calendar, the cornerstone of what sets Hourglass apart from other digital calendars is found within its ability to automatically split tasks into individual work sessions as requested by the user. Instead of having to manually input multiple times in which users plan to work on projects or homework, users can simply give Hourglass the duration in which they expect their project or homework will take, along with its due date or deadline. 
+            <br><br>
+            From here, Hourglass will automatically split the given duration into individual work sessions of relatively equal length up until the day in which the project or homework is due. Hourglass has the ability to automatically place these work sessions into the user's calendar wherever it works best, and takes into account already scheduled tasks and habits when doing so.
+            <div class="image_container">
+            <img src="images/scheduling.gif" class="hourglass_scr" alt="Scheduling GIF">
+            </div>
+            <br><br>
+            Additionally, if the user later inputs an additional task or habit that takes place within the timeframe of a future work session, Hourglass will automatically reschedule the work session to a later point in the user's calendar.
+            <div class="image_container">
+            <img src="images/reschedule.gif" class="hourglass_scr" alt="Reschedule GIF">
+            </div>
+            <br>
+            <div class="subtitle">
+                The Algorithm
+            </div>
+            In order to accomplish the previously mentioned functionality, I utilized backtracking to develop an algorithm that would automatically place the generated work sessions into their respective places. The algorithm is triggered each time the user either adds a split-event task or adds a task that overlaps with a previously placed work session.
+            <br><br>
+            After one of these events happens, Hourglass first generates the duration of each work session, stored inside a list. Then, using the backtracking algorithm, it checks to see if the latest duration of a work session can be added to the day prior to the due date of the split-event task. It does so by first specifying a starting time in which it intends to place the work session, then confirming that no prior events overlap with the work session at this time.
+            <br><br>
+            Assuming this condition is met, the algorithm then removes the duration of the current work session from the list and adds it to a list keeping track of a current solution. If not, the algorithm calls itself again, moving onto a later starting time and repeating the process.
+            <br><br>
+            Once each day has a dedicated work session, the algorithm returns a solution in the form of a list with start and end times, and the resulting list is drawn on the calendar. In the event that no solution is found, such when the duration of the split-event task is too large, the algorithm will inform the user that no work sessions can be generated within the given timeframe.
+        </div>
+    </div>
+    <footer>
+        <div id="footer_txt">
+            Copyright © 2024 Dylan Landucci. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
