@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Games</title>
+    <link rel="stylesheet" href="study.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" id="back-button">
+            <img src="images/back.png" alt="Back">
+        </a>
+        <img src="images/csacademy_f6f6f6.gif" class="image" alt="Arcade Games Demo">
+        <div class="title">
+            Arcade Games
+        </div>
+        <div class="space_body_text">
+            A collection of award-winning recreations of classic arcade games, developed from scratch using Python and CMU CS Academy. These projects were developed over the course of my junior year in my Computer Science I/II in Python classes
+            at Canon-McMillan High School.
+        </div>
+        <div class="info">
+            <div class="item">
+                <span class="label">Timeline</span>
+                <p class="info_desc" id="date">August 2021 — June 2022</p>
+            </div>
+            <div class="item">
+                <span class="label">Teacher</span>
+                <p class="info_desc" id="prof_name"><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/rebecca-gutosky-7085467" id="professor"></a></p>
+            </div>
+            <div class="item">
+                <span class="label"></span>
+            </div>
+            <script>
+                window.addEventListener('resize', function() {
+                  var width = window.innerWidth;
+                  var dateElement = document.getElementById('date');
+                  var prof = document.getElementById('professor');
+                  if (width <= 768) {
+                    dateElement.textContent = '8/2021 — 6/2022';
+                    prof.textContent = 'R. Gutosky';
+                  } else {
+                    dateElement.textContent = 'August 2021 — June 2022';
+                    prof.textContent = 'Rebecca Gutosky';
+                  }
+                });
+            </script>
+            <script>
+                function updateDate() {
+                  var width = window.innerWidth;
+                  var dateElement = document.getElementById('date');
+                  var prof = document.getElementById('professor');
+                  if (width <= 768) {
+                    dateElement.textContent = '8/2021 — 6/2022';
+                    prof.textContent = 'R. Gutosky';
+                  } else {
+                    dateElement.textContent = 'August 2021 — June 2022';
+                    prof.textContent = 'Rebecca Gutosky';
+                  }
+                }
+                
+                window.addEventListener('resize', updateDate);
+                updateDate();
+            </script>
+        </div>
+        <div class="subtitle">
+            An Introduction
+        </div>
+        <div class="reg_body_text">
+            These arcade games were developed as part of my computer science coursework in high school under the direction of my teacher, Rebecca Gutosky. Each of the two classes
+            utilized <a class="here" target="_blank" rel="noopener noreferrer" href="https://academy.cs.cmu.edu/">CMU CS Academy</a>, an online and graphics-based computer science curriculum developed by Carnegie Mellon University.
+        <br><br>
+            In CS Academy's curriculum, lessons were administered in the form of digital and interactive notes, with each lesson containing various activities that helped students
+            in practicing the lesson's topics in a graphics-based manner. Lessons were grouped into units, with a total of a combined 12 units across the two courses. At the end
+            of each unit, students were tested on their comprehension of these new topics via a creative task, a small-scale project that would be completed over the course of
+            multiple days. At the end of the year, students' work and knowledge on what they had learned would culminate into a larger final project.
+        </div>
+        <div class="subtitle">
+            Development
+        </div>
+        <div class="reg_body_text">
+            Due to the creative freedom CS Academy gave its students, the sky was certainly the limit regarding what I could develop for each of my creative tasks and the final project.
+            However, one thing I had always been interested in were retro video games. I can still vividly remember digging through my grandma's basement and unearthing
+            the classic Nintendo Entertainment System from 1985. I was captivated by its games, and spent hours playing the classics like Super Mario Bros. and Excitebike.
+        <br><br>
+            For this reason, and due to CS Academy's heavy use of graphics, I decided that recreating some of my favorite retro games would be the perfect oppurtunity
+            to learn effectively while developing a fun and high-quality game. Over the course of the school year, I developed a wide range of games for my creative tasks, including Q*bert,
+            Space Invaders, Frogger, Super Mario Bros., Pac-Man, Pong, and, of course, Donkey Kong for my final project. Each game utilized concepts we had previously learned from its 
+            respective unit, with the final project involving concepts from each of the previous 11 units.
+        </div>
+        <div class="subtitle">
+            Awards
+        </div>
+        <div class="reg_body_text">
+            Throughout the course of the year, my teacher had mentioned to our class that CMU would continually run creative task competitions, both for spring and fall semesters.
+            She had described that, each semester, she could submit 3 creative tasks from students of the class. During the fall semester of 2022, I decided to submit my final project,
+            Donkey Kong, as it was something I was particularly proud of. A few months later, I was told that the project had been picked as a winner by those at CMU, and
+            my simple Donkey Kong recreation had ended up winning first place out of a collection of internationally submitted final projects.
+            <div class="image_container">
+            <img src="images/fall2022award.png" class="hourglass_scr" alt="Fall 2022 Creative Task Award">
+            </div>
+            <br>
+            <br>
+        Next semester, I decided to try my luck again, this time with my Q*bert project. I had decided Q*bert would be a suitable submission, as its 3D based movement was
+        certainly more complex than the average creative task. While I unfortunately didn't get first place within the respective unit for my project, Q*bert did still place within the top 5 submissions.
+        <div class="image_container">
+        <img src="images/spring2023award.png" class="hourglass_scr" alt="Spring 2023 Creative Task Award">
+        </div>
+        <br>
+        <div class="subtitle">
+            Demos
+        </div>
+        My Donkey Kong project is available to play <a class="here" target="_blank" rel="noopener noreferrer" href="https://academy.cs.cmu.edu/sharing/royalBlueLobster3622">here</a>, and Q*bert is available to play <a class="here" target="_blank" rel="noopener noreferrer" href="https://academy.cs.cmu.edu/sharing/deepSkyBluePuppy5272">here</a>.
+        </div>
+    </div>
+    <footer>
+        <div id="footer_txt">
+            Copyright © 2024 Dylan Landucci. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
