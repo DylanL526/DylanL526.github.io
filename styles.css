@@ -1,77 +1,89 @@
-@font-face {
-    font-family: "San Francisco";
-    font-weight: 400;
-    src: url("fonts/SF-Pro-Display-Medium.otf");
-}
-
-@font-face {
-    font-family: "San Francisco Bold";
-    font-weight: 400;
-    src: url("fonts/SF-Pro-Display-Bold.otf");
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-* {
-    font-family: "San Francisco", Helvetica, sans-serif;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
 #gradient-canvas {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
-    --gradient-color-1: #cfd0fa; 
-    --gradient-color-2: #f6f6f6; 
-    --gradient-color-3: #eae2ff;  
-    --gradient-color-4: #c7caf7;
+    pointer-events: none;
+    opacity: 0.8;
+    --gradient-color-1: #babcf2;
+    --gradient-color-2: #f4f1fb;
+    --gradient-color-3: #e6c9ef;
+    --gradient-color-4: #c1dcf5;
 }
 
 header {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: 7rem;
+    height: 112px;
 }
-  
+
 .navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #f6f6f6;
-    border-radius: 50px;
-    padding: 10px 20px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
     position: fixed;
-    z-index: 1;
+    top: 24px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    max-width: calc(100% - 32px);
+    padding: 8px;
+    border-radius: 999px;
+    isolation: isolate;
+    --glass-fill: rgba(255, 255, 255, 0.07);
+    --glass-blur: 3px;
+    --glass-frost: 1.4;
+    --glass-depth: 1.15;
+    --glass-sheen: linear-gradient(120deg, rgba(255, 255, 255, 0.14), transparent 50%, rgba(255, 255, 255, 0.05));
 }
-  
+
 .navbar a {
+    position: relative;
+    z-index: 1;
+    padding: 13px 23px;
+    border: 0;
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 18px;
     text-decoration: none;
-    font-size: 20px;
-    color: #323235;
-    background-image:linear-gradient(to right, #323235, #323235 33.3333%, #3A41C6, #3D3BBB, #4634A7, #4C2C96, #512888);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 300% 100%;
-    background-position: top left;
-    padding: 10px 20px;
-    border-radius: 50px;
-    transition: all .5s ease-in-out;
+    text-shadow: 0 1px 6px rgba(247, 245, 255, 0.9), 0 0 2px rgba(247, 245, 255, 0.8);
+    transition: background-color 250ms ease, box-shadow 250ms ease, color 250ms ease;
 }
-  
-.navbar a:hover {
-    background-position: top left 100%;
+
+.navbar a:hover,
+.navbar a:focus-visible {
+    color: var(--accent);
+    background-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 3px 10px rgba(61, 46, 112, 0.08);
+}
+
+/* A single clear lens moves beneath the links; links retain native navigation. */
+.navbar .nav-lens {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: var(--nav-width, 0px);
+    height: var(--nav-height, 0px);
+    transform: translate3d(var(--nav-x, 0px), var(--nav-y, 0px), 0);
+    border-radius: inherit;
+    --glass-fill: rgba(255, 255, 255, 0.035);
+    --glass-sheen: linear-gradient(125deg, rgba(255, 255, 255, 0.18), transparent 50%, rgba(255, 255, 255, 0.06));
+    --glass-depth: 0.8;
+    --glass-frost: 0.4;
+    --glass-shadow: 0 3px 12px rgba(45, 35, 84, 0.16), inset 0 -2px 5px rgba(45, 35, 84, 0.1);
+    opacity: var(--nav-opacity, 0);
+    pointer-events: none;
+    transition: transform 450ms var(--glass-ease), width 450ms var(--glass-ease), height 450ms var(--glass-ease), opacity 200ms ease;
+}
+
+.navbar.has-slider a:hover,
+.navbar.has-slider a:focus-visible {
+    background: transparent;
+    box-shadow: none;
+}
+
+.navbar a[data-glass-highlight] {
+    color: var(--accent);
 }
 
 .content {
@@ -79,576 +91,378 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    min-height: 650px;
+    min-height: min(740px, calc(100svh - 112px));
+    padding: 72px 24px 120px;
+    gap: 20px;
+    text-align: center;
 }
 
-#greeting, .location, .container {
-    margin: 10px 0;
+#greeting,
+.title {
+    font-weight: 700;
+    letter-spacing: normal;
+    color: var(--accent);
+    background: linear-gradient(110deg, #3945b4, #633782);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #greeting {
-    text-align: center;
-    font-size: 100px;
-    font-family: "San Francisco Bold", Helvetica, sans-serif;
-    padding-top: 200px;
-    background: linear-gradient(to right, #3A41C6, #3D3BBB, #4634A7, #4C2C96, #512888);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    margin: 0 0 12px;
+    font-size: clamp(56px, 7.5vw, 104px);
+    line-height: 1.1;
 }
 
 .location {
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    color: #323235;
-    font-size: 25px;
+    justify-content: center;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 19px;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+    width: min(620px, 100%);
 }
 
 .intro {
-    text-align: center;
-    font-size: 25px;
-    max-width: 600px;
-    color: #323235;
-    line-height: 30px;
-    margin-right: 10px;
-    max-width: 80%;
+    padding: 0 32px;
+    border-radius: 28px;
+    font-size: clamp(20px, 2vw, 25px);
+    line-height: 1.5;
 }
 
 .body_content {
-    background-color: #f6f6f6;
-    margin-top: 440px;
-    padding-bottom: 300px;
-    border-radius: 50px 50px 0 0;
+    padding: 32px 24px 100px;
+    border-radius: 56px 56px 0 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.28));
 }
 
 .title {
+    margin: 76px 0 36px;
     text-align: center;
-    font-family: "San Francisco Bold", Helvetica, sans-serif;
-    font-size: 70px;
-    padding-top: 150px;
-    margin-top: -50px;
-    background: linear-gradient(to right, #3A41C6, #3D3BBB, #4634A7, #4C2C96, #512888);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    font-size: clamp(44px, 5vw, 70px);
+    line-height: 1.15;
 }
 
-#experience_title {
-    margin-bottom: 20px;
-}
-
-#portrait {
-    border-radius: 20px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
-    max-height:30%;
-    max-width:30%;
-    margin-right: 5%;
-}
-
-.about_desc {
-    color: #323235;
-    font-size: 1.4vw;
-    line-height: 150%;
-    max-height:50%;
-}
-
-.contact_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-    margin: 0 auto;
-}
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 303.33px;
-    height: 80px;
-    margin: 10px;
-    background-color: #eeeff1;
-    border-radius: 20px;
-    font-size: 25px;
-    text-decoration: none;
-    color: #323235;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease-in-out;
-}
-
-.button:hover {
-    transform: scale(1.01);
-}
-
-.button img {
-    height: 40px;
-    margin-right: 10px;
-}
-
-.button_container.experience {
-    margin-bottom: -50px;
+#about_title {
+    margin-top: 32px;
 }
 
 .about_content {
     display: flex;
     align-items: center;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
+    gap: 40px;
+    width: min(1040px, 100%);
+    margin: 0 auto;
+    padding: 36px;
+    border-radius: 36px;
+}
+
+/* Let the text determine the desktop row height; the photo fills that row. */
+.about_photo {
+    position: relative;
+    flex: 0 0 30%;
+    align-self: stretch;
+}
+
+#portrait {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 16px 32px -14px rgba(45, 35, 84, 0.3);
+}
+
+.about_desc {
+    flex: 1;
+    min-width: 0;
+    font-size: clamp(18px, 1.6vw, 21px);
+    line-height: 1.65;
 }
 
 .proj_contact {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#project_title {
-    margin-bottom: 25px;
-    margin-top: 0;
-}
-
-#contact_title {
-    margin-bottom: 25px;
+    width: min(960px, 100%);
+    margin: 0 auto;
 }
 
 .button_container {
-    width: 920px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    margin-left: auto;
-    margin-right: auto;
+    gap: 24px;
+}
+
+/* Equal rows follow the tallest project, including wrapped mobile text. */
+.project_cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: 1fr;
 }
 
 .wide_button {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 16px;
     width: 100%;
-    height: 290px;
-    margin: 10px 0;
-    margin-bottom: 30px;
-    background-color: #eeeff1;
-    border-radius: 20px;
+    min-height: 310px;
+    padding: 30px;
+    border-radius: 32px;
+    color: var(--ink);
     text-decoration: none;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-    padding: 10px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.wide_button.experience {
-    position: relative;
     overflow: hidden;
 }
 
-.button_text.experience {
-    padding-top: 50px;
+.button_text {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 0;
 }
 
+.button_text h3 {
+    margin: 0 0 16px;
+    font-size: clamp(30px, 3.8vw, 49px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: normal;
+}
+
+.button_text p {
+    margin: 0;
+    max-width: 360px;
+    color: var(--muted);
+    font-size: 23px;
+    line-height: 1.4;
+}
+
+.wide_button > img:not(.app_icon):not(.experience_image) {
+    width: 45%;
+    height: 250px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.wide_button.experience {
+    align-items: flex-start;
+    min-height: 330px;
+}
+
+.button_text.experience,
 .button_text.fnb {
-    padding-top: 50px;
+    padding-top: 64px;
+}
+
+.button_text .date-loc {
+    margin: 0 0 12px;
+    font-size: 18px;
 }
 
 .app_icon {
     position: absolute;
-    left: 20px;
-    width: 35px;
-    height: 35px;
+    top: 28px;
+    left: 30px;
+    z-index: 1;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
 }
 
 .app_icon.fnb {
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
 
-.button_text h2 {
-    font-size: 55px;
-    margin: 20px;
-    font-family: "San Francisco Bold", Helvetica, sans-serif;
-    font-weight: normal;
-    color: #323235;
-}
-
-.button_text p {
-    color: #5E5E63;
-    margin: 20px;
-    font-size: 30px;
-    max-width: 350px;
-}
-
-.date-loc {
-    color: #5E5E63;
-    margin: 20px;
-    max-width: 350px;
-    font-size: 22px;
-    font-weight: normal;
-    font-style: italic;
-}
-
-.wide_button img {
-    height: 60px;
-    margin: 10px;
-}
-
-.wide_button:hover {
-    transform: scale(1.01);
-}
-
-#hourglass { 
-    height: auto;
-    width: 500px;
-}
-
-#c0vm {
-    height: 270px;
-    width: 350px;
-}
-
-#csacademy {
-    height: 270px;
-    width: 400px;
-    padding-right: 10px;
-}
-
-#pwebsite {
-    height: 270px;
-    width: 400px;
-    padding-top: 5px;
-}
-
-#experience_image {
-    height: 310px;
-    width: auto;
+.experience_image {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 0;
-    margin: 0;
-    mask-image: linear-gradient(to right, transparent 0%, black 60%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 60%);
+    width: 54%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 70%);
+    mask-image: linear-gradient(to right, transparent, #000 70%);
 }
 
-#experience_image_fnb {
-    height: 310px;
-    width: auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    mask-image: linear-gradient(to right, transparent 0%, black 60%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 60%);
+.experience .button_text {
+    flex: 0 1 55%;
 }
 
-@media screen and (min-width: 769px) and (max-width: 1025px) {
-    .about_content {
-        display: flex;
-        align-items: center;
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 90%;
-    }
+.contact_container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
 
-    .about_desc {
-        font-size: 1.8vw;
-    }
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 80px;
+    padding: 16px;
+    border-radius: 26px;
+    color: var(--ink);
+    font-size: clamp(17px, 2vw, 24px);
+    text-decoration: none;
+}
 
-    .contact_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 0;
-        margin: 0 auto;
-        width: 100%;
-    }
-    
-    .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 240px;
-        height: 65px;
-        background-color: #eeeff1;
-        border-radius: 20px;
-        font-size: 20px;
-        text-decoration: none;
-        color: #323235;
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-    }
-    
-    .button img {
-        height: 30px;
-        margin-right: 10px;
-    }
-
-    .proj_contact {
-        width: 740px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .button_container {
-        width: 700px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .wide_button {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: 200px;
-        margin: 10px 0;
-        margin-bottom: 30px;
-        background-color: #eeeff1;
-        border-radius: 20px;
-        text-decoration: none;
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-        padding: 10px;
-    }
-
-    .wide_button.experience {
-        height: 260px;
-    }
-    
-    .button_text h2 {
-        font-size: 40px;
-        margin: 20px;
-        color: #323235;
-        font-weight: normal;
-    }
-    
-    .button_text p {
-        color: #5E5E63;
-        margin: 20px;
-        font-size: 25px;
-        max-width: 350px;
-    }
-    
-    .wide_button img {
-        height: 60px;
-        margin: 10px;
-        display: block;
-        margin: auto;
-    }
-
-    #hourglass { 
-        height: 157.5px;
-        width: 290px;
-    }
-
-    #c0vm {
-        height: 180px;
-        width: 235px;
-    }
-
-    #csacademy {
-        height: 172.5px;
-        width: 250px;
-        padding-right: 10px;
-    }
-
-    #pwebsite {
-        height: 172.5px;
-        width: 250px;
-    }
-
-    #experience_image {
-        height: 280px;
-        right: -35px;
-    }
-
-    #experience_image_fnb {
-        height: 280px;
-        right: -35px;
-    }
-
-    .app_icon {
-        left: 30px;
-        top: 15px;
-    }
+.button img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 @media (max-width: 768px) {
-    .about_content {
-        flex-direction: column;
-        align-items: stretch;
+    .navbar {
+        top: 16px;
+        gap: 0;
+        padding: 6px;
     }
 
-    #portrait, .about_desc {
-        max-width: 100%;
-        margin: 0;
+    .navbar a {
+        padding: 12px clamp(9px, 2.5vw, 18px);
+        font-size: 15px;
+    }
+
+    header {
+        height: 90px;
+    }
+
+    .content {
+        min-height: 570px;
+        padding: 64px 20px 88px;
+    }
+
+    .intro {
+        padding: 0 22px;
+    }
+
+    .body_content {
+        padding: 24px 20px 64px;
+        border-radius: 36px 36px 0 0;
+    }
+
+    .title {
+        margin-top: 64px;
+        margin-bottom: 28px;
+    }
+
+    .about_content {
+        flex-direction: column;
+        gap: 28px;
+        padding: 24px;
+        border-radius: 28px;
+    }
+
+    .about_photo {
+        flex: none;
+        align-self: center;
+        width: min(280px, 100%);
     }
 
     #portrait {
-        margin-top: -20px;
-        margin-bottom: 50px;
-    }
-
-    .about_desc {
-        font-size: 25px;
-    }
-
-    .contact_container {
-        flex-direction: column;
-        align-items: center;
-        max-width: 100%;
-        justify-content: center;
-    }
-
-    .button {
-        margin-bottom: 20px;
-        width: 105%;
-        margin-right: 10px;
-    }
-
-    .proj_contact {
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .button_container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
+        position: static;
+        height: auto;
     }
 
     .wide_button {
         flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: 500px;
+        align-items: stretch;
+        gap: 24px;
+        padding: 26px;
+        border-radius: 28px;
     }
 
-    .wide_button img {
-        margin-top: 10px;
-        align-self: center;
-    }
-
-    .button_text {
-        align-self: flex-start;
-        width: 100%;
-    }
-
-    .button_text h2 {
-        font-size: 50px;
-        font-weight: normal;
+    .button_text h3 {
+        font-size: clamp(30px, 6vw, 44px);
     }
 
     .button_text p {
-        color: #5E5E63;
-        margin: 20px;
-        font-size: 25px;
         max-width: 100%;
+        font-size: 21px;
     }
 
-    #hourglass { 
-        height: 35vw;
-        width: 60vw;
-        justify-content: center;
-        margin-top: auto;
-        margin-bottom: auto;
+    .wide_button > img:not(.app_icon):not(.experience_image) {
+        align-self: center;
+        width: 100%;
+        height: 220px;
     }
 
-    #c0vm {
-        height: 40vw;
-        width: 50vw;
-        justify-content: center;
-        margin-top: auto;
-        margin-bottom: auto;
+    .wide_button.experience {
+        gap: 0;
+        padding-bottom: 0;
     }
 
-    #csacademy {
-        height: 40vw;
-        width: 60vw;
-        justify-content: center;
-        margin-top: auto;
-        margin-bottom: auto;
-        padding-left: 10px;
+    .experience .button_text {
+        flex: auto;
+        width: 100%;
     }
 
-    #pwebsite {
-        height: 40vw;
-        width: 60vw;
-        margin-bottom: auto;
-    }
-
-    .navbar a:hover {
-        background-position: top left 0%;
-    }
-
-    #greeting { 
-        font-size: 80px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .navbar a {
-        padding: 10px 10px;
-        font-size: 15px;
-    }
-
-    #experience_image {
+    .experience_image {
         position: relative;
-        height: auto;
-        width: 80vw;
-        right: 0;
-        top: calc(70px - 20vw);
-        padding: 0;
-        margin: 0;
-        mask-image: linear-gradient(transparent 0%, black 60%);
-        -webkit-mask-image: linear-gradient(transparent 0%, black 60%);
+        align-self: center;
+        width: calc(100% + 52px);
+        height: 210px;
+        margin-top: 8px;
+        -webkit-mask-image: linear-gradient(to bottom, transparent, #000 65%);
+        mask-image: linear-gradient(to bottom, transparent, #000 65%);
     }
 
-    #experience_image_fnb {
-        position: relative;
-        height: auto;
-        width: 80vw;
-        right: 0;
-        top: calc(70px - 20vw);
-        padding: 0;
-        margin: 0;
-        mask-image: linear-gradient(transparent 0%, black 60%);
-        -webkit-mask-image: linear-gradient(transparent 0%, black 60%);
+    .app_icon {
+        left: 26px;
+        top: 26px;
     }
-}
 
-@media (max-width: 475px) {
-    .button_text.fnb h2 {
-        font-size: 0;
+    .contact_container {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
-    
-    .button_text.fnb h2::after {
-        content: "F.N.B. Corp.";
-        font-size: 50px;
+
+    .button {
+        min-height: 74px;
+        font-size: 23px;
+    }
+
+    footer {
+        margin: 0 20px 20px;
+        padding: 28px 20px;
     }
 }
 
-footer {
-    font-size: 16px;
-    text-align: center;
-    color: #707072;
-    background-color: #eeeff1;
-    padding-top: 75px;
-    padding-bottom: 75px;
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .navbar .nav-lens,
+    .navbar .nav-lens > .glass-optics-layer {
+        background: #ddd8f1;
+        box-shadow: none;
+    }
 }
 
-#footer_txt {
-    padding-left: 40px;
-    padding-right: 40px;
+@media (forced-colors: active) {
+    #greeting,
+    .title {
+        background: none;
+        -webkit-text-fill-color: CanvasText;
+    }
+
+    .navbar .nav-lens {
+        background: Highlight;
+        box-shadow: none;
+    }
+
+    .navbar a[data-glass-highlight] {
+        color: HighlightText;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar a,
+    .navbar .nav-lens {
+        transition: none;
+    }
 }

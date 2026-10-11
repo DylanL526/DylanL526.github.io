@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C0 Virtual Machine</title>
+    <link rel="stylesheet" href="liquid-glass.css">
     <link rel="stylesheet" href="study.css">
+    <script src="liquid-glass.js" defer></script>
+    <script src="glass-optics.js" defer></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" id="back-button">
-            <img src="images/back.png" alt="Back">
-        </a>
-        <img src="images/c0vm_f6f6f6.png" class="image" alt="c0vm Demo">
+    <a href="index.html#project_title" id="back-button" class="glass glass-interactive" aria-label="Back to projects">
+        <img src="images/back.png" alt="">
+    </a>
+    <main class="container">
+        <img src="images/c0vm1.png" class="image" alt="c0vm Demo">
         <div class="title">
             C0 Virtual Machine
         </div>
@@ -26,7 +29,7 @@
             </div>
             <div class="item">
                 <span class="label">Course</span>
-                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://www.cs.cmu.edu/~15122/" id="course">15-122</a></p>
+                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://www.cs.cmu.edu/~15122/" class="course-link">15-122</a></p>
             </div>
             <div class="item">
                 <span class="label">Professor</span>
@@ -85,7 +88,7 @@
         <br><br>
             With this extension, the virtual machine has the ability to run all C0 and C1 programs, including all previous assignments from 15-122.
         </div>
-    </div>
+    </main>
     <footer>
         <div id="footer_txt">
             Copyright © 2026 Dylan Landucci. All rights reserved.

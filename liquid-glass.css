@@ -1,0 +1,245 @@
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("fonts/SF-Pro-Display-Medium.otf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 700;
+    src: url("fonts/SF-Pro-Display-Bold.otf");
+    font-display: swap;
+}
+
+:root {
+    color-scheme: light;
+    --ink: #282839;
+    --muted: #505064;
+    --accent: #4940a4;
+    --glass-fill: rgba(255, 255, 255, 0.14);
+    --glass-blur: 4px;
+    --glass-frost: 0.6;
+    --glass-depth: 1;
+    --glass-dispersion: 0.035;
+    --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.015) 45%, rgba(255, 255, 255, 0.08));
+    --glass-shadow: 0 16px 40px -20px rgba(49, 40, 104, 0.28),
+        0 4px 12px -6px rgba(49, 40, 104, 0.14);
+    --glass-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    font-family: "San Francisco", -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+    background: #eae9f7;
+    isolation: isolate;
+}
+
+/* Also provides the background when WebGL or animation is unavailable. */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 8% 12%, #c1bef2 0, transparent 52%),
+        radial-gradient(ellipse at 95% 40%, #c8dff5 0, transparent 50%),
+        radial-gradient(ellipse at 50% 95%, #e3caf0 0, transparent 55%),
+        #f0edf8;
+}
+
+/* Shared material: translucent fill, blurred backdrop, and soft shadows. */
+.glass {
+    position: relative;
+    border: 0;
+    background-color: var(--glass-fill);
+    background-image: var(--glass-sheen);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+    box-shadow: var(--glass-shadow);
+}
+
+.glass-interactive {
+    --light-x: 30%;
+    --light-y: 0%;
+    isolation: isolate;
+    transition: transform 350ms var(--glass-ease), box-shadow 350ms var(--glass-ease), background-color 250ms ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* The reflection sits behind content and never intercepts a click. */
+.glass-interactive::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(ellipse at var(--light-x) var(--light-y), rgba(255, 255, 255, 0.45), transparent 65%);
+    opacity: 0.2;
+    transition: opacity 300ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .glass-interactive:hover {
+        transform: translateY(-4px) scale(1.008);
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: var(--glass-shadow), 0 22px 45px -26px rgba(68, 49, 137, 0.4);
+    }
+
+    .glass-interactive:hover::before {
+        opacity: 0.5;
+    }
+}
+
+.glass-interactive:active {
+    transform: translateY(0) scale(0.985);
+}
+
+/* The optical layers are separate from the label, which stays crisp. Moving
+   backdrop-filter off the parent also lets the navigation lens see the page. */
+.glass.glass-optical,
+.glass.glass-optical:hover {
+    isolation: isolate;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.glass-optics-layer,
+.glass-specular {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.glass-optics-layer {
+    z-index: -2;
+    background-color: var(--glass-fill);
+    background-image: var(--glass-sheen);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    box-shadow: inset 4px 3px 12px -7px rgba(68, 59, 110, 0.25),
+        inset -4px -5px 14px -8px rgba(68, 59, 110, 0.3);
+}
+
+.glass-refractive > .glass-optics-layer {
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+}
+
+.glass-specular {
+    z-index: 2;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .glass-optical.glass-interactive:hover > .glass-optics-layer {
+        background-color: rgba(255, 255, 255, 0.16);
+    }
+}
+
+.glass-filter-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 5px;
+}
+
+::selection {
+    color: #272044;
+    background: #d0c9f6;
+}
+
+footer {
+    margin: 0 24px 24px;
+    padding: 36px 24px;
+    border-radius: 28px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass,
+    .glass-optics-layer {
+        background-color: #f1eff9;
+    }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .glass,
+    .glass-interactive:hover,
+    .glass-optical > .glass-optics-layer,
+    .glass-optical.glass-interactive:hover > .glass-optics-layer {
+        background: #f7f6fc;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    .glass-interactive::before,
+    .glass-specular {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .glass-interactive,
+    .glass-interactive::before,
+    .navbar a {
+        transition: none;
+    }
+
+    .glass-interactive:hover,
+    .glass-interactive:active {
+        transform: none;
+    }
+
+    #gradient-canvas {
+        display: none;
+    }
+}
+
+@media (forced-colors: active) {
+    .glass {
+        border: 1px solid CanvasText;
+        box-shadow: none;
+    }
+
+    .glass-interactive::before {
+        display: none;
+    }
+
+    .glass-optical > .glass-optics-layer,
+    .glass-specular {
+        display: none;
+    }
+
+    a:focus-visible {
+        outline-color: Highlight;
+    }
+}

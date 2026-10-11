@@ -518,5 +518,28 @@ function normalizeColor(hexCode) {
   * Gradient.updateFrequency(freq)
   */
   
-const gradient=new Gradient;
-gradient.initGradient("#gradient-canvas");
+// Keep the CSS backdrop for reduced motion and browsers without WebGL.
+const gradient = new Gradient();
+const gradientMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let gradientStarted = false;
+
+function updateGradientMotion() {
+    if (gradientMotion.matches) {
+        if (gradientStarted) gradient.pause();
+        return;
+    }
+
+    if (gradientStarted) {
+        if (!gradient.conf.playing) gradient.play();
+        return;
+    }
+
+    const canvas = document.querySelector('#gradient-canvas');
+    if (canvas && canvas.getContext('webgl')) {
+        gradient.initGradient('#gradient-canvas');
+        gradientStarted = true;
+    }
+}
+
+gradientMotion.addEventListener('change', updateGradientMotion);
+updateGradientMotion();

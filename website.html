@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
+    <link rel="stylesheet" href="liquid-glass.css">
     <link rel="stylesheet" href="study.css">
+    <script src="liquid-glass.js" defer></script>
+    <script src="glass-optics.js" defer></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" id="back-button">
-            <img src="images/back.png" alt="Back">
-        </a>
+    <a href="index.html#project_title" id="back-button" class="glass glass-interactive" aria-label="Back to projects">
+        <img src="images/back.png" alt="">
+    </a>
+    <main class="container">
         <img src="images/pwebsite.png" class="image" alt="Website Demo">
         <div class="title">
             Personal Website
@@ -26,7 +29,7 @@
             </div>
             <div class="item">
                 <span class="label">GitHub</span>
-                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://github.com/DylanL526/DylanL526.github.io" id="course">Personal Website</a></p>
+                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://github.com/DylanL526/DylanL526.github.io" class="course-link">Personal Website</a></p>
             </div>
             <div class="item">
                 <span class="label"></span>
@@ -70,7 +73,7 @@
             Finally, in order to create a more lively feeling for the landing page, I was able to implement a script for a dynamic mesh gradient taken from <a target="_blank" rel="noopener noreferrer" href="https://whatamesh.vercel.app/" class="here">whatamesh.</a> The script, which is entirely written in JavaScript, illustrates a moving mesh of four distinct colors and gives the website a subtle yet distinct pop.
 
         </div>
-    </div>
+    </main>
     <footer>
         <div id="footer_txt">
             Copyright © 2026 Dylan Landucci. All rights reserved.

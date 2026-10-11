@@ -5,26 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hey, I'm Dylan. I'm currently a student at Carnegie Mellon University studying computer science, human-computer interaction, and machine learning." />
     <title>Dylan Landucci</title>
+    <link rel="stylesheet" href="liquid-glass.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="liquid-glass.js" defer></script>
+    <script src="glass-optics.js" defer></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <div id="initial-screen">
-        <canvas id="gradient-canvas" data-transition-in></canvas>
+        <canvas id="gradient-canvas" data-transition-in aria-hidden="true"></canvas>
         <header>
-            <div class="navbar">
+            <nav class="navbar glass" aria-label="Main navigation">
                 <a href="#about_title">About</a>
                 <a href="#experience_title">Experience</a>
                 <a href="#project_title">Projects</a>
                 <a href="#contact_title">Contact</a>
-            </div>
+            </nav>
         </header>
         <div class="content">
-            <p id="greeting">Hey, I'm Dylan.</p>
+            <h1 id="greeting">Hey, I'm Dylan.</h1>
             
             <div class="location">
                 <img src="images/pin.png" height=24px width="24px" alt="Pin">
-                &nbspPittsburgh, PA
+                &nbsp;Pittsburgh, PA
             </div>
             
             <div class="container">
@@ -34,10 +37,12 @@
             </div>
         </div>
     </div>
-    <div class="body_content">
-        <p class="title" id="about_title">About</p>
+    <main class="body_content">
+        <h2 class="title" id="about_title">About</h2>
         <div class="about_content">
-            <img id="portrait" src="images/dylan.png" alt="Dylan">
+            <div class="about_photo">
+                <img id="portrait" src="images/dylan.png" alt="Dylan">
+            </div>
             <div class="about_desc">
                 Hi again, I'm Dylan Landucci. I'm a highly motivated and detail-oriented computer science student at Carnegie Mellon University. My interests lie at the intersection of artificial intelligence, human-computer interaction, and software engineering, and I have a strong interest in
                 leveraging these fields to create software that makes our lives easier. I place a high focus on the design of user-interfaces, as I believe a product should be just as intuitive as it is functional.<br><br>
@@ -45,87 +50,87 @@
                 When not at the computer, you can find me practicing trumpet or trying new Italian restaurants.
             </div>
         </div>
-        <p class="title" id="experience_title">Experience</p>
+        <h2 class="title" id="experience_title">Experience</h2>
         <div class="proj_contact">
             <div class="button_container experience">
-                <a class="wide_button experience">
+                <article class="wide_button experience glass">
                     <img src="images/OracleLogo.png" alt="Oracle Icon" class="app_icon">
                     <div class="button_text experience">
-                        <h2>Oracle</h2>
-                        <h1 class="date-loc">Summer 2026 • Austin, TX</h1>
+                        <h3>Oracle</h3>
+                        <p class="date-loc">Summer 2026 • Austin, TX</p>
                         <p>Software Engineer Intern</p>
                     </div>
-                    <img src="images/oracle-hq-1.jpg" alt="Oracle HQ" id="experience_image">
-                </a>
-                <a class="wide_button experience">
+                    <img src="images/oracle-hq-1.jpg" alt="Oracle HQ" class="experience_image">
+                </article>
+                <article class="wide_button experience glass">
                     <img src="images/synopsys-app-transparent-background.001.png" alt="Synopsys Icon" class="app_icon">
                     <div class="button_text experience">
-                        <h2>Synopsys</h2>
-                        <h1 class="date-loc">Summer 2025 • Canonsburg, PA</h1>
+                        <h3>Synopsys</h3>
+                        <p class="date-loc">Summer 2025 • Canonsburg, PA</p>
                         <p>Software Development Engineer Intern</p>
                     </div>
-                    <img src="images/synopsys-hq-1.jpg" alt="Synopsys HQ" id="experience_image">
-                </a>
-                <a class="wide_button experience">
+                    <img src="images/synopsys-hq-1.jpg" alt="Synopsys HQ" class="experience_image">
+                </article>
+                <article class="wide_button experience glass">
                     <img src="images/fnb-icon.png" alt="FNB Icon" class="app_icon">
                     <div class="button_text fnb">
-                        <h2>F.N.B. Corporation</h2>
-                        <h1 class="date-loc">Summer 2024 • Pittsburgh, PA</h1>
+                        <h3>F.N.B. Corporation</h3>
+                        <p class="date-loc">Summer 2024 • Pittsburgh, PA</p>
                         <p>Software Development Intern</p>
                     </div>
-                    <img src="images/fnb-hq.jpg" alt="FNB HQ" id="experience_image_fnb">
-                </a>
+                    <img src="images/fnb-hq.jpg" alt="FNB HQ" class="experience_image">
+                </article>
             </div>
         </div>
-        <p class="title" id="project_title">Projects</p>
+        <h2 class="title" id="project_title">Projects</h2>
         <div class="proj_contact">
-            <div class="button_container">
-                <a href="website.html" class="wide_button">
+            <div class="button_container project_cards">
+                <a href="website.html" class="wide_button glass glass-interactive">
                     <div class="button_text">
-                        <h2>Personal Website</h2>
+                        <h3>Personal Website</h3>
                         <p>This website ─ built from scratch using HTML, CSS, and JavaScript</p>
                     </div>
                     <img src="images/pwebsite.png" alt="Website Demo" id="pwebsite">
                 </a>
-                <a href="c0vm.html" class="wide_button">
+                <a href="c0vm.html" class="wide_button glass glass-interactive">
                     <div class="button_text">
-                        <h2>C0 Virtual Machine</h2>
+                        <h3>C0 Virtual Machine</h3>
                         <p>A JVM inspired virtual machine for C0 ─ a safe subset of C</p>
                     </div>
-                    <img src="images/c0vm.png" alt="c0vm Demo" id="c0vm">
+                    <img src="images/c0vm1.png" alt="c0vm Demo" id="c0vm">
                 </a>
-                <a href="hourglass.html" class="wide_button">
+                <a href="hourglass.html" class="wide_button glass glass-interactive">
                     <div class="button_text">
-                        <h2>Hourglass</h2>
+                        <h3>Hourglass</h3>
                         <p>A revolutionary take on a digital calendar for the modern world, created exclusively in Python</p>
                     </div>
                     <img src="images/hourglass.png" alt="Hourglass Demo" id="hourglass">
                 </a>
-                <a href="arcadegames.html" class="wide_button">
+                <a href="arcadegames.html" class="wide_button glass glass-interactive">
                     <div class="button_text">
-                        <h2>Arcade Games</h2>
+                        <h3>Arcade Games</h3>
                         <p>A collection of award-winning recreations built using Python and CMU CS Academy</p>
                     </div>
-                    <img src="images/csacademy.gif" alt="Arcade Demo" id="csacademy">
+                    <img src="images/arcadegames1.gif" alt="Arcade Demo" id="csacademy">
                 </a>
             </div>     
-            <p class="title" id="contact_title">Contact</p>
+            <h2 class="title" id="contact_title">Contact</h2>
             <div class="contact_container">
-                <a href="mailto:dlanducc@andrew.cmu.edu" class="button">
+                <a href="mailto:dlanducc@andrew.cmu.edu" class="button glass glass-interactive">
                     <img src="images/email.png" alt="Mail Icon">
                     dlanducc
                 </a>
-                <a href="https://www.linkedin.com/in/dylan-landucci" class="button">
+                <a href="https://www.linkedin.com/in/dylan-landucci" class="button glass glass-interactive">
                     <img src="images/linkedin.png" alt="LinkedIn Icon">
                     /dylan-landucci
                 </a>
-                <a href="https://github.com/DylanL526" class="button">
+                <a href="https://github.com/DylanL526" class="button glass glass-interactive">
                     <img src="images/github.png" alt="GitHub Icon">
                     /DylanL526
                 </a>
             </div>
         </div>
-    </div>
+    </main>
     <script src="Gradient.js"></script>
     <footer>
         <div id="footer_txt">

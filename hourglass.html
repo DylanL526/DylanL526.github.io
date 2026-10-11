@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hourglass</title>
+    <link rel="stylesheet" href="liquid-glass.css">
     <link rel="stylesheet" href="study.css">
+    <script src="liquid-glass.js" defer></script>
+    <script src="glass-optics.js" defer></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" id="back-button">
-            <img src="images/back.png" alt="Back">
-        </a>
+    <a href="index.html#project_title" id="back-button" class="glass glass-interactive" aria-label="Back to projects">
+        <img src="images/back.png" alt="">
+    </a>
+    <main class="container">
         <img src="images/hourglass.png" class="image" alt="Hourglass Demo">
         <div class="title">
             Hourglass
@@ -27,11 +30,11 @@
             </div>
             <div class="item" id="course_name">
                 <span class="label">Course</span>
-                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://www.cs.cmu.edu/~112/" id="course">15-112</a></p>
+                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://www.cs.cmu.edu/~112/" class="course-link">15-112</a></p>
             </div>
             <div class="item">
                 <span class="label">GitHub</span>
-                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://github.com/DylanL526/Hourglass" id="course">Hourglass</a></p>
+                <p class="info_desc"><a target="_blank" rel="noopener noreferrer" href="https://github.com/DylanL526/Hourglass" class="course-link">Hourglass</a></p>
             </div>
             <div class="item">
                 <span class="label">Professor</span>
@@ -69,7 +72,7 @@
                 updateDate();
             </script>
         </div>
-        <iframe width="600" height="315" src="https://www.youtube.com/embed/xknnuzfyYGE">
+        <iframe title="Hourglass project demo" width="600" height="315" src="https://www.youtube.com/embed/xknnuzfyYGE">
         </iframe>
         <div class="subtitle">
             Background
@@ -137,7 +140,7 @@
             <br><br>
             Once each day has a dedicated work session, the algorithm returns a solution in the form of a list with start and end times, and the resulting list is drawn on the calendar. In the event that no solution is found, such when the duration of the split-event task is too large, the algorithm will inform the user that no work sessions can be generated within the given timeframe.
         </div>
-    </div>
+    </main>
     <footer>
         <div id="footer_txt">
             Copyright © 2026 Dylan Landucci. All rights reserved.
